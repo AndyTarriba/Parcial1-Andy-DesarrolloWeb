@@ -1,0 +1,161 @@
+/* --- Variables y Reset --- */
+:root {
+    --dark-bg: #0a0a0a;
+    --card-bg: #141414;
+    --accent-blue: #00eaff;
+    --text-white: #ffffff;
+    --text-gray: #a1a1aa;
+    --border-color: #27272a;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background-color: #121212; 
+    color: var(--text-white);
+    display: flex;
+    justify-content: center;
+    transition: background-color 0.6s ease;
+}
+
+.container {
+    width: 90%;
+    max-width: 850px;
+    padding: 40px 0;
+}
+
+/* --- Estilo Pantalla Inicial --- */
+.welcome-card {
+    background: white;
+    color: #18181b;
+    padding: 60px 40px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    margin-top: 80px;
+    animation: slideUp 0.7s ease-out;
+}
+
+.badge {
+    background: #f4f4f5;
+    color: #3f3f46;
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.divider {
+    height: 1px;
+    background: #e4e4e7;
+    margin: 30px 0;
+}
+
+/* --- Botón Interactivo (Punto 5) --- */
+.main-button {
+    background: #18181b;
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 auto;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.main-button:hover {
+    background: #3f3f46;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Cambio añadido: Efecto active solicitado */
+.main-button:active {
+    transform: translateY(-1px) scale(0.98);
+    background: #000;
+}
+
+/* --- Lista de Productos --- */
+.products-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #050505;
+    padding: 15px;
+    border-radius: 16px;
+    border: 2px solid #1f1f1f;
+}
+
+.card {
+    display: flex;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    border-color: var(--accent-blue);
+    transform: translateX(10px);
+    box-shadow: -5px 0 15px rgba(0, 234, 255, 0.2);
+}
+
+/* Punto 4: Manejo de imágenes (Ajustado a cover) */
+.card img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover; 
+    background: #000;
+}
+
+.card-content {
+    padding: 15px 20px;
+    flex: 1;
+}
+
+.card h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+    color: var(--accent-blue);
+}
+
+.card p {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.precio {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: white;
+}
+
+/* --- Loader y Estados --- */
+.oculto { display: none !important; }
+.loader-box { text-align: center; margin-top: 100px; }
+.spinner {
+    width: 45px;
+    height: 45px;
+    border: 4px solid rgba(255,255,255,0.1);
+    border-top-color: var(--accent-blue);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
